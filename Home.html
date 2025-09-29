@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tags for SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Easily generate CSS code for gradients, shadows, borders, text styles, transforms, and animations. No coding knowledge required!">
+  <meta name="keywords" content="CSS generator, gradient generator, shadow generator, border generator, text style generator, transform generator, animation generator, free CSS tool">
+  <meta name="author" content="QR Tools">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Tags for Social Media -->
+  <meta property="og:title" content="CSS Generator - Free Online Tool">
+  <meta property="og:description" content="Generate CSS for gradients, shadows, borders, text, transforms, and animations easily.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yoursite.com/css-generator">
+  <meta property="og:image" content="https://yoursite.com/images/css-generator-preview.jpg">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSS Generator">
+  <meta name="twitter:description" content="Generate CSS code easily.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+  
+  <title>CSS Generator - Free Online CSS Code Generator Tool</title>
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CSS Generator",
+    "description": "Generate CSS for gradients, shadows, borders, text styles, transforms, and animations.",
+    "url": "https://yoursite.com/css-generator",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      width: 100%;
+      max-width: 1200px;
+      height: 100vh;
+      overflow-y: auto;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border-radius: 0;
+      position: relative;
+    }
+
+    /* Header Section */
+    .header {
+      margin-bottom: 30px;
+      padding: 20px 0;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Tool Section */
+    .tool-section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 24px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+
+    .tool-btn {
+      padding: 12px 16px;
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .tool-btn.active {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border-color: #667eea;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .tool-btn:hover:not(.active) {
+      background: #e9ecef;
+      transform: translateY(-1px);
+      border-color: #667eea;
+    }
+
+    /* Generator Section */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .controls-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .control-group {
+      padding: 12px;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      font-size: 15px;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    .control-group label {
+      font-size: 15px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .control-group input,
+    .control-group select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      font-size: 15px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .control-group input:focus,
+    .control-group select:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .color-input {
+      width: 100%;
+      height: 40px;
+      padding: 0;
+    }
+
+    .range-input {
+      width: 100%;
+    }
+
+    .multi-input {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 10px;
+    }
+
+    .value-display {
+      margin-left: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .preset-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .preset-btn {
+      padding: 8px 12px;
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: #666;
+    }
+
+    .preset-btn:hover {
+      background: #e9ecef;
+      transform: translateY(-1px);
+      border-color: #667eea;
+    }
+
+    .preview-panel {
+      margin: 25px auto;
+      padding: 25px;
+      background: #f8f9fa;
+      border-radius: 15px;
+      border: 2px solid #e9ecef;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .preview-box {
+      background: #fff;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 20px;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-element {
+      width: 150px;
+      height: 150px;
+      background: #667eea;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+      transition: all 0.3s ease;
+    }
+
+    .css-output {
+      width: 100%;
+      padding: 14px;
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      min-height: 150px;
+      font-family: monospace;
+      color: #333;
+    }
+
+    .css-output:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #dc3545, #c82333);
+      box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    }
+
+    .btn-secondary:hover {
+      box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+    }
+
+    /* Ad Container */
+    .ad-container {
+      margin: 20px auto;
+      text-align: center;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 20px;
+      padding: 20px 0;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .header p {
+        font-size: 14px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .tool-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .main-content {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        font-size: 14px;
+        padding: 12px 24px;
+      }
+
+      .ad-container {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+
+      .header {
+        padding: 15px 0;
+      }
+
+      .header h1 {
+        font-size: 20px;
+      }
+
+      .preview-panel {
+        padding: 20px;
+      }
+
+      .ad-container {
+        max-width: 100%;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tool-content {
+      animation: fadeIn 0.6s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+      <h1>
+        <span>🎨</span>
+        CSS Generator
+      </h1>
+      <p>Easily generate CSS code - no coding knowledge required!</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="tool-section">
+        <h2 class="section-title">
+          <span>📋</span>
+          Select Tool
+        </h2>
+        <div class="tool-grid" id="toolGrid">
+          <!-- Tools will be inserted here by JavaScript -->
+        </div>
+      </div>
+
+      <div class="controls-panel" id="controlsPanel">
+        <!-- Tool-specific controls will be shown here based on selected tool -->
+      </div>
+
+      <div class="preview-panel">
+        <div class="preview-box" id="previewBox">
+          <div class="preview-element" id="previewElement">Sample</div>
+        </div>
+
+        <div class="input-group">
+          <label>Generated CSS</label>
+          <textarea class="css-output" id="cssOutput" readonly>background: linear-gradient(to right, #FF6B6B, #4ECDC4);</textarea>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="copyCSSCode()">Copy Code</button>
+          <button class="btn btn-secondary" onclick="resetAll()">Reset</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Ad Container -->
+    <div class="ad-container" id="adContainer"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      © 2025 CSS Generator | All rights reserved
+    </footer>
+  </div>
+
+  <script>
+    // Ad configurations
+    const adConfigs = [
+      {
+        key: '63718988f07bc6d276f3c6a441757cae',
+        format: 'iframe',
+        height: 90,
+        width: 728,
+        params: {},
+        scriptSrc: '//www.highperformanceformat.com/63718988f07bc6d276f3c6a441757cae/invoke.js'
+      },
+      {
+        key: 'c620af328467e6de19dc04af696ee0fb',
+        format: 'iframe',
+        height: 250,
+        width: 300,
+        params: {},
+        scriptSrc: '//www.highperformanceformat.com/c620af328467e6de19dc04af696ee0fb/invoke.js'
+      },
+      {
+        key: '78ade24182729fceea8e45203dad915b',
+        format: 'iframe',
+        height: 50,
+        width: 320,
+        params: {},
+        scriptSrc: '//www.highperformanceformat.com/78ade24182729fceea8e45203dad915b/invoke.js'
+      }
+    ];
+
+    // Function to load a random ad
+    function loadRandomAd() {
+      // Clear previous ad content
+      const adContainer = document.getElementById('adContainer');
+      adContainer.innerHTML = '';
+
+      // Select a random ad configuration
+      const randomIndex = Math.floor(Math.random() * adConfigs.length);
+      const ad = adConfigs[randomIndex];
+
+      // Set atOptions for the selected ad
+      window.atOptions = {
+        'key': ad.key,
+        'format': ad.format,
+        'height': ad.height,
+        'width': ad.width,
+        'params': ad.params
+      };
+
+      // Create a script element to load the ad
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = ad.scriptSrc;
+      adContainer.appendChild(script);
+    }
+
+    // Existing JavaScript code
+    let currentTool = 'gradient';
+
+    const tools = [
+      { id: 'gradient', name: '🌈 Gradient' },
+      { id: 'shadow', name: '🌑 Shadow' },
+      { id: 'border', name: '🔳 Border' },
+      { id: 'text', name: '📝 Text' },
+      { id: 'transform', name: '🔄 Transform' },
+      { id: 'animation', name: '✨ Animation' }
+    ];
+
+    // Render tools
+    function renderTools() {
+      const grid = document.getElementById('toolGrid');
+      grid.innerHTML = '';
+      tools.forEach(tool => {
+        const btn = document.createElement('button');
+        btn.classList.add('tool-btn');
+        if (tool.id === currentTool) btn.classList.add('active');
+        btn.innerText = tool.name;
+        btn.addEventListener('click', () => switchTool(tool.id));
+        grid.appendChild(btn);
+      });
+    }
+
+    // Switch tool
+    function switchTool(tool) {
+      currentTool = tool;
+      renderTools();
+      renderControls();
+      updatePreview();
+    }
+
+    // Render controls for current tool
+    function renderControls() {
+      const panel = document.getElementById('controlsPanel');
+      panel.innerHTML = '';
+      let controlsHtml = '';
+
+      switch (currentTool) {
+        case 'gradient':
+          controlsHtml = `
+            <div class="control-group">
+              <label for="gradientType">Gradient Type</label>
+              <select id="gradientType" onchange="updateGradient()">
+                <option value="linear">Linear</option>
+                <option value="radial">Radial</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="gradientDirection">Direction</label>
+              <select id="gradientDirection" onchange="updateGradient()">
+                <option value="to right">Left to Right</option>
+                <option value="to left">Right to Left</option>
+                <option value="to bottom">Top to Bottom</option>
+                <option value="to top">Bottom to Top</option>
+                <option value="45deg">45° Angle</option>
+                <option value="90deg">90° Angle</option>
+                <option value="180deg">180° Angle</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="gradientColor1">First Color</label>
+              <input type="color" id="gradientColor1" value="#FF6B6B" class="color-input" onchange="updateGradient()">
+            </div>
+            <div class="control-group">
+              <label for="gradientColor2">Second Color</label>
+              <input type="color" id="gradientColor2" value="#4ECDC4" class="color-input" onchange="updateGradient()">
+            </div>
+            <div class="preset-buttons">
+              <button class="preset-btn" onclick="setGradientPreset('#FF6B6B', '#4ECDC4')">Sunset</button>
+              <button class="preset-btn" onclick="setGradientPreset('#667eea', '#764ba2')">Purple</button>
+              <button class="preset-btn" onclick="setGradientPreset('#f093fb', '#f5576c')">Pink</button>
+              <button class="preset-btn" onclick="setGradientPreset('#4facfe', '#00f2fe')">Ocean</button>
+            </div>
+          `;
+          break;
+        case 'shadow':
+          controlsHtml = `
+            <div class="control-group">
+              <label>X Offset <span class="value-display" id="shadowXValue">5px</span></label>
+              <input type="range" id="shadowX" min="-20" max="20" value="5" class="range-input" oninput="updateShadow()">
+            </div>
+            <div class="control-group">
+              <label>Y Offset <span class="value-display" id="shadowYValue">5px</span></label>
+              <input type="range" id="shadowY" min="-20" max="20" value="5" class="range-input" oninput="updateShadow()">
+            </div>
+            <div class="control-group">
+              <label>Blur <span class="value-display" id="blurValue">10px</span></label>
+              <input type="range" id="blur" min="0" max="50" value="10" class="range-input" oninput="updateShadow()">
+            </div>
+            <div class="control-group">
+              <label>Spread <span class="value-display" id="spreadValue">0px</span></label>
+              <input type="range" id="spread" min="-10" max="10" value="0" class="range-input" oninput="updateShadow()">
+            </div>
+            <div class="control-group">
+              <label for="shadowColor">Shadow Color</label>
+              <input type="color" id="shadowColor" value="#000000" class="color-input" onchange="updateShadow()">
+            </div>
+            <div class="control-group">
+              <label>Opacity <span class="value-display" id="opacityValue">0.3</span></label>
+              <input type="range" id="shadowOpacity" min="0" max="1" step="0.1" value="0.3" class="range-input" oninput="updateShadow()">
+            </div>
+          `;
+          break;
+        case 'border':
+          controlsHtml = `
+            <div class="control-group">
+              <label>Border Width <span class="value-display" id="borderWidthValue">2px</span></label>
+              <input type="range" id="borderWidth" min="0" max="20" value="2" class="range-input" oninput="updateBorder()">
+            </div>
+            <div class="control-group">
+              <label for="borderStyle">Border Style</label>
+              <select id="borderStyle" onchange="updateBorder()">
+                <option value="solid">Solid</option>
+                <option value="dashed">Dashed</option>
+                <option value="dotted">Dotted</option>
+                <option value="double">Double</option>
+                <option value="groove">Groove</option>
+                <option value="ridge">Ridge</option>
+                <option value="inset">Inset</option>
+                <option value="outset">Outset</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="borderColor">Border Color</label>
+              <input type="color" id="borderColor" value="#FF6B6B" class="color-input" onchange="updateBorder()">
+            </div>
+            <div class="control-group">
+              <label>Border Radius <span class="value-display" id="radiusValue">8px</span></label>
+              <input type="range" id="borderRadius" min="0" max="50" value="8" class="range-input" oninput="updateBorder()">
+            </div>
+            <div class="control-group">
+              <label>Custom Radius (for each corner)</label>
+              <div class="multi-input">
+                <input type="number" id="radiusTopLeft" placeholder="Top Left" min="0" max="50" oninput="updateBorder()">
+                <input type="number" id="radiusTopRight" placeholder="Top Right" min="0" max="50" oninput="updateBorder()">
+                <input type="number" id="radiusBottomLeft" placeholder="Bottom Left" min="0" max="50" oninput="updateBorder()">
+                <input type="number" id="radiusBottomRight" placeholder="Bottom Right" min="0" max="50" oninput="updateBorder()">
+              </div>
+            </div>
+          `;
+          break;
+        case 'text':
+          controlsHtml = `
+            <div class="control-group">
+              <label>Font Size <span class="value-display" id="fontSizeValue">24px</span></label>
+              <input type="range" id="fontSize" min="12" max="72" value="24" class="range-input" oninput="updateText()">
+            </div>
+            <div class="control-group">
+              <label for="fontWeight">Font Weight</label>
+              <select id="fontWeight" onchange="updateText()">
+                <option value="100">Thin (100)</option>
+                <option value="300">Light (300)</option>
+                <option value="400">Normal (400)</option>
+                <option value="500">Medium (500)</option>
+                <option value="600">Semi-bold (600)</option>
+                <option value="700" selected>Bold (700)</option>
+                <option value="900">Black (900)</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="textColor">Text Color</label>
+              <input type="color" id="textColor" value="#333333" class="color-input" onchange="updateText()">
+            </div>
+            <div class="control-group">
+              <label>Letter Spacing <span class="value-display" id="letterSpacingValue">0px</span></label>
+              <input type="range" id="letterSpacing" min="-2" max="10" value="0" class="range-input" oninput="updateText()">
+            </div>
+            <div class="control-group">
+              <label>Text Shadow X <span class="value-display" id="textShadowXValue">2px</span></label>
+              <input type="range" id="textShadowX" min="-10" max="10" value="2" class="range-input" oninput="updateText()">
+            </div>
+            <div class="control-group">
+              <label>Text Shadow Y <span class="value-display" id="textShadowYValue">2px</span></label>
+              <input type="range" id="textShadowY" min="-10" max="10" value="2" class="range-input" oninput="updateText()">
+            </div>
+            <div class="control-group">
+              <label>Text Shadow Blur <span class="value-display" id="textBlurValue">4px</span></label>
+              <input type="range" id="textBlur" min="0" max="20" value="4" class="range-input" oninput="updateText()">
+            </div>
+            <div class="control-group">
+              <label for="textShadowColor">Text Shadow Color</label>
+              <input type="color" id="textShadowColor" value="#000000" class="color-input" onchange="updateText()">
+            </div>
+          `;
+          break;
+        case 'transform':
+          controlsHtml = `
+            <div class="control-group">
+              <label>Scale <span class="value-display" id="scaleValue">1</span></label>
+              <input type="range" id="scale" min="0.5" max="2" step="0.1" value="1" class="range-input" oninput="updateTransform()">
+            </div>
+            <div class="control-group">
+              <label>Rotate <span class="value-display" id="rotateValue">0deg</span></label>
+              <input type="range" id="rotate" min="0" max="360" value="0" class="range-input" oninput="updateTransform()">
+            </div>
+            <div class="control-group">
+              <label>Translate X <span class="value-display" id="translateXValue">0px</span></label>
+              <input type="range" id="translateX" min="-50" max="50" value="0" class="range-input" oninput="updateTransform()">
+            </div>
+            <div class="control-group">
+              <label>Translate Y <span class="value-display" id="translateYValue">0px</span></label>
+              <input type="range" id="translateY" min="-50" max="50" value="0" class="range-input" oninput="updateTransform()">
+            </div>
+            <div class="control-group">
+              <label>Skew X <span class="value-display" id="skewXValue">0deg</span></label>
+              <input type="range" id="skewX" min="-45" max="45" value="0" class="range-input" oninput="updateTransform()">
+            </div>
+            <div class="control-group">
+              <label>Skew Y <span class="value-display" id="skewYValue">0deg</span></label>
+              <input type="range" id="skewY" min="-45" max="45" value="0" class="range-input" oninput="updateTransform()">
+            </div>
+          `;
+          break;
+        case 'animation':
+          controlsHtml = `
+            <div class="control-group">
+              <label for="animationName">Animation Name</label>
+              <input type="text" id="animationName" value="myAnimation" oninput="updateAnimation()">
+            </div>
+            <div class="control-group">
+              <label>Duration <span class="value-display" id="durationValue">2s</span></label>
+              <input type="range" id="animationDuration" min="0.1" max="10" step="0.1" value="2" class="range-input" oninput="updateAnimation()">
+            </div>
+            <div class="control-group">
+              <label for="timingFunction">Timing Function</label>
+              <select id="timingFunction" onchange="updateAnimation()">
+                <option value="ease">Ease</option>
+                <option value="linear">Linear</option>
+                <option value="ease-in">Ease In</option>
+                <option value="ease-out">Ease Out</option>
+                <option value="ease-in-out">Ease In Out</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="iterationCount">Iteration</label>
+              <select id="iterationCount" onchange="updateAnimation()">
+                <option value="1">1 time</option>
+                <option value="2">2 times</option>
+                <option value="3">3 times</option>
+                <option value="5">5 times</option>
+                <option value="infinite">Infinite</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="animationDirection">Direction</label>
+              <select id="animationDirection" onchange="updateAnimation()">
+                <option value="normal">Normal</option>
+                <option value="reverse">Reverse</option>
+                <option value="alternate">Alternate</option>
+              </select>
+            </div>
+            <div class="preset-buttons">
+              <button class="preset-btn" onclick="setAnimationPreset('bounce')">Bounce</button>
+              <button class="preset-btn" onclick="setAnimationPreset('fade')">Fade</button>
+              <button class="preset-btn" onclick="setAnimationPreset('slide')">Slide</button>
+              <button class="preset-btn" onclick="setAnimationPreset('rotate')">Rotate</button>
+            </div>
+          `;
+          break;
+      }
+
+      panel.innerHTML = controlsHtml;
+    }
+
+    // Update preview
+    function updatePreview() {
+      switch(currentTool) {
+        case 'gradient':
+          updateGradient();
+          break;
+        case 'shadow':
+          updateShadow();
+          break;
+        case 'border':
+          updateBorder();
+          break;
+        case 'text':
+          updateText();
+          break;
+        case 'transform':
+          updateTransform();
+          break;
+        case 'animation':
+          updateAnimation();
+          break;
+      }
+    }
+
+    // Update Gradient
+    function updateGradient() {
+      const type = document.getElementById('gradientType').value;
+      const direction = document.getElementById('gradientDirection').value;
+      const color1 = document.getElementById('gradientColor1').value;
+      const color2 = document.getElementById('gradientColor2').value;
+      const previewElement = document.getElementById('previewElement');
+      const cssOutput = document.getElementById('cssOutput');
+
+      let gradient;
+      if (type === 'linear') {
+        gradient = `linear-gradient(${direction}, ${color1}, ${color2})`;
+      } else {
+        gradient = `radial-gradient(circle, ${color1}, ${color2})`;
+      }
+
+      previewElement.style.background = gradient;
+      previewElement.style.boxShadow = 'none';
+      previewElement.style.border = 'none';
+      previewElement.style.transform = 'none';
+      previewElement.style.animation = 'none';
+      previewElement.style.fontSize = '1.2em';
+      previewElement.style.fontWeight = 'bold';
+      previewElement.style.color = 'white';
+      previewElement.style.textShadow = 'none';
+
+      cssOutput.value = `background: ${gradient};`;
+    }
+
+    // Set Gradient Preset
+    function setGradientPreset(color1, color2) {
+      document.getElementById('gradientColor1').value = color1;
+      document.getElementById('gradientColor2').value = color2;
+      updateGradient();
+    }
+
+    // Update Shadow
+    function updateShadow() {
+      const x = document.getElementById('shadowX').value;
+      const y = document.getElementById('shadowY').value;
+      const blur = document.getElementById('blur').value;
+      const spread = document.getElementById('spread').value;
+      const color = document.getElementById('shadowColor').value;
+      const opacity = document.getElementById('shadowOpacity').value;
+      const previewElement = document.getElementById('previewElement');
+      const cssOutput = document.getElementById('cssOutput');
+
+      document.getElementById('shadowXValue').textContent = `${x}px`;
+      document.getElementById('shadowYValue').textContent = `${y}px`;
+      document.getElementById('blurValue').textContent = `${blur}px`;
+      document.getElementById('spreadValue').textContent = `${spread}px`;
+      document.getElementById('opacityValue').textContent = opacity;
+
+      const rgbaColor = hexToRgba(color, opacity);
+      const shadow = `${x}px ${y}px ${blur}px ${spread}px ${rgbaColor}`;
+      previewElement.style.boxShadow = shadow;
+      previewElement.style.background = '#FF6B6B';
+      previewElement.style.border = 'none';
+      previewElement.style.transform = 'none';
+      previewElement.style.animation = 'none';
+      previewElement.style.fontSize = '1.2em';
+      previewElement.style.fontWeight = 'bold';
+      previewElement.style.color = 'white';
+      previewElement.style.textShadow = 'none';
+
+      cssOutput.value = `box-shadow: ${shadow};`;
+    }
+
+    // Convert hex to rgba
+    function hexToRgba(hex, opacity) {
+      hex = hex.replace('#', '');
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+      return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+    }
+
+    // Update Border
+    function updateBorder() {
+      const width = document.getElementById('borderWidth').value;
+      const style = document.getElementById('borderStyle').value;
+      const color = document.getElementById('borderColor').value;
+      const radius = document.getElementById('borderRadius').value;
+      const topLeft = document.getElementById('radiusTopLeft').value || radius;
+      const topRight = document.getElementById('radiusTopRight').value || radius;
+      const bottomLeft = document.getElementById('radiusBottomLeft').value || radius;
+      const bottomRight = document.getElementById('radiusBottomRight').value || radius;
+      const previewElement = document.getElementById('previewElement');
+      const cssOutput = document.getElementById('cssOutput');
+
+      document.getElementById('borderWidthValue').textContent = `${width}px`;
+      document.getElementById('radiusValue').textContent = `${radius}px`;
+
+      const borderRadius = `${topLeft}px ${topRight}px ${bottomLeft}px ${bottomRight}px`;
+      previewElement.style.border = `${width}px ${style} ${color}`;
+      previewElement.style.borderRadius = borderRadius;
+      previewElement.style.background = '#f8f9fa';
+      previewElement.style.boxShadow = 'none';
+      previewElement.style.transform = 'none';
+      previewElement.style.animation = 'none';
+      previewElement.style.fontSize = '1.2em';
+      previewElement.style.fontWeight = 'bold';
+      previewElement.style.color = '#333';
+      previewElement.style.textShadow = 'none';
+
+      cssOutput.value = `border: ${width}px ${style} ${color};\nborder-radius: ${borderRadius};`;
+    }
+
+    // Update Text
+    function updateText() {
+      const fontSize = document.getElementById('fontSize').value;
+      const fontWeight = document.getElementById('fontWeight').value;
+      const color = document.getElementById('textColor').value;
+      const letterSpacing = document.getElementById('letterSpacing').value;
+      const shadowX = document.getElementById('textShadowX').value;
+      const shadowY = document.getElementById('textShadowY').value;
+      const blur = document.getElementById('textBlur').value;
+      const shadowColor = document.getElementById('textShadowColor').value;
+      const previewElement = document.getElementById('previewElement');
+      const cssOutput = document.getElementById('cssOutput');
+
+      document.getElementById('fontSizeValue').textContent = `${fontSize}px`;
+      document.getElementById('letterSpacingValue').textContent = `${letterSpacing}px`;
+      document.getElementById('textShadowXValue').textContent = `${shadowX}px`;
+      document.getElementById('textShadowYValue').textContent = `${shadowY}px`;
+      document.getElementById('textBlurValue').textContent = `${blur}px`;
+
+      const textShadow = `${shadowX}px ${shadowY}px ${blur}px ${shadowColor}`;
+      previewElement.style.fontSize = `${fontSize}px`;
+      previewElement.style.fontWeight = fontWeight;
+      previewElement.style.color = color;
+      previewElement.style.letterSpacing = `${letterSpacing}px`;
+      previewElement.style.textShadow = textShadow;
+      previewElement.style.background = 'transparent';
+      previewElement.style.border = 'none';
+      previewElement.style.boxShadow = 'none';
+      previewElement.style.transform = 'none';
+      previewElement.style.animation = 'none';
+
+      cssOutput.value = `font-size: ${fontSize}px;\nfont-weight: ${fontWeight};\ncolor: ${color};\nletter-spacing: ${letterSpacing}px;\ntext-shadow: ${textShadow};`;
+    }
+
+    // Update Transform
+    function updateTransform() {
+      const scale = document.getElementById('scale').value;
+      const rotate = document.getElementById('rotate').value;
+      const translateX = document.getElementById('translateX').value;
+      const translateY = document.getElementById('translateY').value;
+      const skewX = document.getElementById('skewX').value;
+      const skewY = document.getElementById('skewY').value;
+      const previewElement = document.getElementById('previewElement');
+      const cssOutput = document.getElementById('cssOutput');
+
+      document.getElementById('scaleValue').textContent = scale;
+      document.getElementById('rotateValue').textContent = `${rotate}deg`;
+      document.getElementById('translateXValue').textContent = `${translateX}px`;
+      document.getElementById('translateYValue').textContent = `${translateY}px`;
+      document.getElementById('skewXValue').textContent = `${skewX}deg`;
+      document.getElementById('skewYValue').textContent = `${skewY}deg`;
+
+      const transform = `scale(${scale}) rotate(${rotate}deg) translate(${translateX}px, ${translateY}px) skew(${skewX}deg, ${skewY}deg)`;
+      previewElement.style.transform = transform;
+      previewElement.style.background = '#FF6B6B';
+      previewElement.style.border = 'none';
+      previewElement.style.boxShadow = 'none';
+      previewElement.style.animation = 'none';
+      previewElement.style.fontSize = '1.2em';
+      previewElement.style.fontWeight = 'bold';
+      previewElement.style.color = 'white';
+      previewElement.style.textShadow = 'none';
+
+      cssOutput.value = `transform: ${transform};`;
+    }
+
+    // Update Animation
+    function updateAnimation() {
+      const name = document.getElementById('animationName').value;
+      const duration = document.getElementById('animationDuration').value;
+      const timing = document.getElementById('timingFunction').value;
+      const iteration = document.getElementById('iterationCount').value;
+      const direction = document.getElementById('animationDirection').value;
+      const previewElement = document.getElementById('previewElement');
+      const cssOutput = document.getElementById('cssOutput');
+
+      document.getElementById('durationValue').textContent = `${duration}s`;
+
+      const animation = `${name} ${duration}s ${timing} ${iteration} ${direction}`;
+      previewElement.style.animation = animation;
+      previewElement.style.background = '#FF6B6B';
+      previewElement.style.border = 'none';
+      previewElement.style.boxShadow = 'none';
+      previewElement.style.transform = 'none';
+      previewElement.style.fontSize = '1.2em';
+      previewElement.style.fontWeight = 'bold';
+      previewElement.style.color = 'white';
+      previewElement.style.textShadow = 'none';
+
+      // Generate keyframe based on animation name
+      let keyframe = '';
+      switch(name) {
+        case 'bounce':
+          keyframe = `@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+  transform: translateY(0);
+}
+40% {
+  transform: translateY(-30px);
+}
+60% {
+  transform: translateY(-15px);
+}
+}`;
+          break;
+        case 'fade':
+          keyframe = `@keyframes fade {
+0%, 100% {
+  opacity: 1;
+}
+50% {
+  opacity: 0.3;
+}
+}`;
+          break;
+        case 'slide':
+          keyframe = `@keyframes slide {
+0% {
+  transform: translateX(-50px);
+}
+100% {
+  transform: translateX(50px);
+}
+}`;
+          break;
+        case 'rotate':
+          keyframe = `@keyframes rotate {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+}
+}`;
+          break;
+        default:
+          keyframe = `@keyframes ${name} {
+0% {
+  transform: translateY(0);
+}
+50% {
+  transform: translateY(-20px);
+}
+100% {
+  transform: translateY(0);
+}
+}`;
+      }
+
+      cssOutput.value = `animation: ${animation};\n${keyframe}`;
+
+      // Add keyframes to document
+      let styleSheet = document.getElementById('animationStyles');
+      if (!styleSheet) {
+        styleSheet = document.createElement('style');
+        styleSheet.id = 'animationStyles';
+        document.head.appendChild(styleSheet);
+      }
+      styleSheet.textContent = keyframe;
+    }
+
+    // Set Animation Preset
+    function setAnimationPreset(preset) {
+      document.getElementById('animationName').value = preset;
+      updateAnimation();
+    }
+
+    // Copy CSS Code
+    function copyCSSCode() {
+      const cssOutput = document.getElementById('cssOutput');
+      cssOutput.select();
+      document.execCommand('copy');
+      alert('CSS code copied!');
+    }
+
+    // Reset All Controls
+    function resetAll() {
+      // Reset Gradient
+      if (document.getElementById('gradientType')) document.getElementById('gradientType').value = 'linear';
+      if (document.getElementById('gradientDirection')) document.getElementById('gradientDirection').value = 'to right';
+      if (document.getElementById('gradientColor1')) document.getElementById('gradientColor1').value = '#FF6B6B';
+      if (document.getElementById('gradientColor2')) document.getElementById('gradientColor2').value = '#4ECDC4';
+
+      // Reset Shadow
+      if (document.getElementById('shadowX')) document.getElementById('shadowX').value = 5;
+      if (document.getElementById('shadowY')) document.getElementById('shadowY').value = 5;
+      if (document.getElementById('blur')) document.getElementById('blur').value = 10;
+      if (document.getElementById('spread')) document.getElementById('spread').value = 0;
+      if (document.getElementById('shadowColor')) document.getElementById('shadowColor').value = '#000000';
+      if (document.getElementById('shadowOpacity')) document.getElementById('shadowOpacity').value = 0.3;
+      if (document.getElementById('shadowXValue')) document.getElementById('shadowXValue').textContent = '5px';
+      if (document.getElementById('shadowYValue')) document.getElementById('shadowYValue').textContent = '5px';
+      if (document.getElementById('blurValue')) document.getElementById('blurValue').textContent = '10px';
+      if (document.getElementById('spreadValue')) document.getElementById('spreadValue').textContent = '0px';
+      if (document.getElementById('opacityValue')) document.getElementById('opacityValue').textContent = '0.3';
+
+      // Reset Border
+      if (document.getElementById('borderWidth')) document.getElementById('borderWidth').value = 2;
+      if (document.getElementById('borderStyle')) document.getElementById('borderStyle').value = 'solid';
+      if (document.getElementById('borderColor')) document.getElementById('borderColor').value = '#FF6B6B';
+      if (document.getElementById('borderRadius')) document.getElementById('borderRadius').value = 8;
+      if (document.getElementById('radiusTopLeft')) document.getElementById('radiusTopLeft').value = '';
+      if (document.getElementById('radiusTopRight')) document.getElementById('radiusTopRight').value = '';
+      if (document.getElementById('radiusBottomLeft')) document.getElementById('radiusBottomLeft').value = '';
+      if (document.getElementById('radiusBottomRight')) document.getElementById('radiusBottomRight').value = '';
+      if (document.getElementById('borderWidthValue')) document.getElementById('borderWidthValue').textContent = '2px';
+      if (document.getElementById('radiusValue')) document.getElementById('radiusValue').textContent = '8px';
+
+      // Reset Text
+      if (document.getElementById('fontSize')) document.getElementById('fontSize').value = 24;
+      if (document.getElementById('fontWeight')) document.getElementById('fontWeight').value = 700;
+      if (document.getElementById('textColor')) document.getElementById('textColor').value = '#333333';
+      if (document.getElementById('letterSpacing')) document.getElementById('letterSpacing').value = 0;
+      if (document.getElementById('textShadowX')) document.getElementById('textShadowX').value = 2;
+      if (document.getElementById('textShadowY')) document.getElementById('textShadowY').value = 2;
+      if (document.getElementById('textBlur')) document.getElementById('textBlur').value = 4;
+      if (document.getElementById('textShadowColor')) document.getElementById('textShadowColor').value = '#000000';
+      if (document.getElementById('fontSizeValue')) document.getElementById('fontSizeValue').textContent = '24px';
+      if (document.getElementById('letterSpacingValue')) document.getElementById('letterSpacingValue').textContent = '0px';
+      if (document.getElementById('textShadowXValue')) document.getElementById('textShadowXValue').textContent = '2px';
+      if (document.getElementById('textShadowYValue')) document.getElementById('textShadowYValue').textContent = '2px';
+      if (document.getElementById('textBlurValue')) document.getElementById('textBlurValue').textContent = '4px';
+
+      // Reset Transform
+      if (document.getElementById('scale')) document.getElementById('scale').value = 1;
+      if (document.getElementById('rotate')) document.getElementById('rotate').value = 0;
+      if (document.getElementById('translateX')) document.getElementById('translateX').value = 0;
+      if (document.getElementById('translateY')) document.getElementById('translateY').value = 0;
+      if (document.getElementById('skewX')) document.getElementById('skewX').value = 0;
+      if (document.getElementById('skewY')) document.getElementById('skewY').value = 0;
+      if (document.getElementById('scaleValue')) document.getElementById('scaleValue').textContent = '1';
+      if (document.getElementById('rotateValue')) document.getElementById('rotateValue').textContent = '0deg';
+      if (document.getElementById('translateXValue')) document.getElementById('translateXValue').textContent = '0px';
+      if (document.getElementById('translateYValue')) document.getElementById('translateYValue').textContent = '0px';
+      if (document.getElementById('skewXValue')) document.getElementById('skewXValue').textContent = '0deg';
+      if (document.getElementById('skewYValue')) document.getElementById('skewYValue').textContent = '0deg';
+
+      // Reset Animation
+      if (document.getElementById('animationName')) document.getElementById('animationName').value = 'myAnimation';
+      if (document.getElementById('animationDuration')) document.getElementById('animationDuration').value = 2;
+      if (document.getElementById('timingFunction')) document.getElementById('timingFunction').value = 'ease';
+      if (document.getElementById('iterationCount')) document.getElementById('iterationCount').value = '1';
+      if (document.getElementById('animationDirection')) document.getElementById('animationDirection').value = 'normal';
+      if (document.getElementById('durationValue')) document.getElementById('durationValue').textContent = '2s';
+
+      // Update preview
+      updatePreview();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTools();
+      renderControls();
+      updateGradient();
+      loadRandomAd(); // Load a random ad on page load
+    });
+  </script>
+</body>
+</html>
